@@ -29,5 +29,8 @@ myArticle = Section "Document"[
                 Section "Results" [Text "All is great"]]
 
 allSectionNames :: Article -> [String]
-allSectionNames (Text x) = [x]
-allSectionNames (Section (x:xs) ys ) = [xs,ys]
+allSectionNames (Text x) = []
+allSectionNames (Section x y) = x: concatMap allSectionNames y
+
+
+                
