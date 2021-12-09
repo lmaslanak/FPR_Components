@@ -1,0 +1,8 @@
+returnSize :: Cube -> Int
+returnSize (Cube (Point x y z) (s)) = s
+
+highestVolume :: [Cube] -> Cube
+highestVolume [x] = x
+highestVolume (x:y:xs) | ((returnSize x * returnSize x * returnSize x) >= (returnSize y * returnSize y * returnSize y)) = highestVolume(x:xs)
+                       | otherwise = highestVolume(y:xs)
+
